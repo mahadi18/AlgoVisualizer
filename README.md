@@ -15,4 +15,16 @@ In this window, Input data are shown in the top row. Next N-1 rows denotes every
 
 ![sortpage](https://cloud.githubusercontent.com/assets/11133613/22303056/bd060e34-e35b-11e6-8d46-5bb65d523725.png)
 
-In current iteration, ovals
+In current iteration, ovals are colored RED, but those neighboring two are comparing their value are colored GREEN. Last line is the sorted result and colored RED.
+
+![sortpage2](https://cloud.githubusercontent.com/assets/11133613/22319493/58289d22-e3ad-11e6-8030-5a087bab7770.png)
+
+If anyone wants to visualize again, "Replay" button can help him/her. There is also an option for changing input data.
+
+# Language
+Java
+
+# Platform
+Cross Platform.
+
+
