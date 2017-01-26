@@ -6,7 +6,11 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.ImageIcon;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -14,13 +18,20 @@ import javax.swing.JPanel;
 
 public class FirstFrame extends JPanel {
     private static final long serialVersionUID = 1L;
+    
     JFrame firstFrame = new JFrame("AlgoVisualizer");
+    BufferedImage image = null;
+    File f = null;
+    private Image img;
     private JButton bubbleSrtBtn = new JButton("Bubble Sort");
     private JButton creditbtn = new JButton("Credit");
     private JButton manualBtn = new JButton("Help");
-
-    public FirstFrame() {
-        this.firstFrame.add(this);
+    
+    FirstFrame() throws IOException {
+    	
+    	img = ImageIO.read(getClass().getResource("resources/new.jpg")) ;
+    	
+    	this.firstFrame.add(this);
         this.firstFrame.setSize(1380, 730);
 
         setLayout(null);
@@ -28,7 +39,7 @@ public class FirstFrame extends JPanel {
         this.firstFrame.setDefaultCloseOperation(3);
         this.firstFrame.setResizable(true);
         this.firstFrame.setDefaultCloseOperation(3);
-
+        
         this.bubbleSrtBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 FirstFrame.this.firstFrame.dispose();
@@ -52,7 +63,12 @@ public class FirstFrame extends JPanel {
         this.creditbtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 FirstFrame.this.firstFrame.dispose();
-                new Credit();
+                try {
+					new Credit();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
             }
         });
         this.manualBtn.setLocation(100, 300);
@@ -63,7 +79,12 @@ public class FirstFrame extends JPanel {
         this.manualBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
                 FirstFrame.this.firstFrame.dispose();
-                new Manual();
+                try {
+					new Manual();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
             }
         });
         add(this.manualBtn);
@@ -79,7 +100,8 @@ public class FirstFrame extends JPanel {
     }
 
     public void paintComponent(Graphics g) {
-        Image frstWinBackg = new ImageIcon("new.jpg").getImage();
-        g.drawImage(frstWinBackg, 0, 0, getWidth(), getHeight(), this);
+    	
+    	g.drawImage(img, 0, 0, getWidth(), getHeight(), this);
+        g.drawImage(img, 0, 0, this);
     }
 }

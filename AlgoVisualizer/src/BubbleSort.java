@@ -5,7 +5,9 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.ArrayList;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -28,7 +30,8 @@ public class BubbleSort extends JPanel {
     int colorFlag = 100;
     int colorFlag2 = 100;
     int arrSize;
-    ArrayList<String> array = new ArrayList();
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+	ArrayList<String> array = new ArrayList();
     String[] text;
     String[] initialText = new String[100];
     JTextField inputText;
@@ -43,7 +46,7 @@ public class BubbleSort extends JPanel {
 
         this.inputText = new JTextField();
 
-        this.bblSrtFrame = new JFrame("AlgoVisualizer : Bubble Sort   {{{ Developer: Mahadi Mohammad AL Zihadi, CSE'12, KUET }}} ");
+        this.bblSrtFrame = new JFrame("AlgoVisualizer : Bubble Sort   ");
         this.bblSrtFrame.setDefaultCloseOperation(3);
 
         this.sortPanel = new BubbleSort.MyDrawPanel();
@@ -55,11 +58,11 @@ public class BubbleSort extends JPanel {
         this.inte = new int['?'];
 
         JButton bckToFrst = new JButton();
-        bckToFrst.setBounds(1200, 20, 100, 50);
+        bckToFrst.setBounds(1050, 360, 200, 50);
         bckToFrst.setBackground(Color.magenta);
         bckToFrst.setForeground(Color.white);
 
-        bckToFrst.setText("Menu");
+        bckToFrst.setText("Back to Menu");
         bckToFrst.setFont(new Font("Gill Sans Ultra", 2, 18));
         this.sortPanel.setLayout(null);
         this.sortPanel.add(bckToFrst);
@@ -70,7 +73,11 @@ public class BubbleSort extends JPanel {
 
                 BubbleSort.this.bblSrtFrame.dispose();
 
-                new FirstFrame();
+                try {
+					new FirstFrame();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
             }
         });
 
@@ -94,7 +101,7 @@ public class BubbleSort extends JPanel {
         });
 
         JButton bblreplay = new JButton();
-        bblreplay.setBounds(1100, 160, 200, 50);
+        bblreplay.setBounds(1150, 160, 200, 50);
         bblreplay.setBackground(Color.pink);
         bblreplay.setForeground(Color.black);
 
@@ -134,8 +141,11 @@ public class BubbleSort extends JPanel {
             }
         });
 
-        JLabel label = new JLabel(
-            "Input Data (maximum 6 data) << Use only a SPACE to separate data and input less than 1000>>  {{{ Developer: Mahadi Mohammad AL Zihadi, CSE'12, KUET }}} ");
+        JLabel label = new JLabel();
+        
+        label.setText("        Input Integers [max 6] (use only one SPACE to separate)");
+        label.setFont(new Font("Gill Sans Ultra", 1, 24));
+        
         this.textPanel.add(label);
         label.setBounds(200, 150, 1000, 70);
 
@@ -143,15 +153,15 @@ public class BubbleSort extends JPanel {
         this.textPanel.setLayout(null);
         this.textPanel.add(this.inputText);
 
-        this.textPanel.setBackground(Color.cyan);
+        this.textPanel.setBackground(Color.CYAN);
 
         JButton bckFrst = new JButton();
-        bckFrst.setBounds(1200, 20, 100, 50);
+        bckFrst.setBounds(500, 300, 200, 50);
         bckFrst.setBackground(Color.magenta);
         bckFrst.setForeground(Color.white);
 
-        bckFrst.setText("Menu");
-        bckFrst.setFont(new Font("Gill Sans Ultra", 2, 18));
+        bckFrst.setText("Back to Menu");
+        bckFrst.setFont(new Font("Gill Sans Ultra", 10, 18));
         this.sortPanel.setLayout(null);
         this.textPanel.add(bckFrst);
 
@@ -161,7 +171,12 @@ public class BubbleSort extends JPanel {
 
                 BubbleSort.this.bblSrtFrame.dispose();
 
-                new FirstFrame();
+                try {
+					new FirstFrame();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
             }
         });
 
@@ -179,6 +194,7 @@ public class BubbleSort extends JPanel {
 
                 BubbleSort.this.inputData = BubbleSort.this.inputText.getText();
                 BubbleSort.this.text = BubbleSort.this.inputData.split(" ");
+                
                 SwingUtilities.invokeLater(new Runnable() {
                     public void run() {
                         BubbleSort.this.bblSrtFrame.getContentPane().remove(BubbleSort.this.textPanel);
