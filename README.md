@@ -21,6 +21,10 @@ In current iteration, ovals are colored RED, but those neighboring two are compa
 
 If anyone wants to visualize again, "Replay" button can help him/her. There is also an option for changing input data.
 
+# Animation
+
+![algogif](https://cloud.githubusercontent.com/assets/11133613/22320194/350becb6-e3b4-11e6-9200-23d744700f70.gif)
+
 # Language
 Java
 
