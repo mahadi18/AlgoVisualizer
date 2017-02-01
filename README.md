@@ -25,6 +25,9 @@ If anyone wants to visualize again, "Replay" button can help him/her. There is a
 
 ![algogif](https://cloud.githubusercontent.com/assets/11133613/22320194/350becb6-e3b4-11e6-9200-23d744700f70.gif)
 
+# Video
+Click <a href="https://www.youtube.com/watch?v=Zehq1UQFDDY&feature=youtu.be">here</a> to watch.
+
 # Language
 Java
 
